@@ -1,35 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr13v6o32crgx"]
+[gd_scene load_steps=5 format=3 uid="uid://dr13v6o32crgx"]
+
+[ext_resource type="PackedScene" uid="uid://c662ij6okj26v" path="res://player.tscn" id="1_cke1h"]
+[ext_resource type="PackedScene" uid="uid://com3243i4kpso" path="res://ball.tscn" id="2_2vvpt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cupch"]
-size = Vector2(1920, 50)
+size = Vector2(1920, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uidcn"]
-size = Vector2(50, 1080)
+size = Vector2(100, 1080)
 
 [node name="Level" type="Node2D"]
 
 [node name="ParedSuperior" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedSuperior"]
-position = Vector2(960, -25)
+position = Vector2(960, -50)
 shape = SubResource("RectangleShape2D_cupch")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="ParedInferior" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedInferior"]
-position = Vector2(960, 1105)
+position = Vector2(960, 1130)
 shape = SubResource("RectangleShape2D_cupch")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="ArcoPlayer" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArcoPlayer"]
-position = Vector2(-25, 540)
+position = Vector2(-50, 540)
 shape = SubResource("RectangleShape2D_uidcn")
 
 [node name="ArcoOponente" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArcoOponente"]
-position = Vector2(1945, 540)
+position = Vector2(1970, 540)
 shape = SubResource("RectangleShape2D_uidcn")
+
+[node name="Player" parent="." instance=ExtResource("1_cke1h")]
+position = Vector2(50, 460)
+
+[node name="Ball" parent="." instance=ExtResource("2_2vvpt")]
+position = Vector2(771, 504)
